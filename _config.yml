@@ -1,0 +1,33 @@
+# 「まとめる」サポートサイト（GitHub Pages）
+# 公開URL: https://shin6022.github.io/matomeru/
+# アプリ内のリンク先: /privacy.html と /support.html（URLを変えるとアプリの修正が要る）
+
+title: まとめる
+description: 子どもの写真、選ばなくてもアルバムになる。
+lang: ja
+baseurl: /matomeru
+url: https://shin6022.github.io
+
+# ── ここだけ埋めれば全ページに反映される ──────────────
+contact_email: "[アプリ専用メールアドレス]"
+operator_name: "[運営者名]"
+policy_established: "2026年[●]月[●]日"
+policy_revised: "2026年[●]月[●]日"
+# App Store 公開後に App Store のURLを入れると、トップにボタンが出る
+app_store_url: ""
+# ─────────────────────────────────────────────
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+
+exclude:
+  - README.md
+  - setup.sh

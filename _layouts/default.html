@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="{{ site.lang | default: 'ja' }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% if page.title and page.title != site.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+<meta name="description" content="{{ page.description | default: site.description }}">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" type="image/png" href="{{ '/favicon.png' | relative_url }}">
+<link rel="apple-touch-icon" href="{{ '/apple-touch-icon.png' | relative_url }}">
+<style>
+:root {
+  --bg: #FBF8F5;
+  --surface: #FFFFFF;
+  --text: #2B2622;
+  --muted: #6E655E;
+  --line: #E8E0D8;
+  --accent: #FF8C5A;
+  --link: #A2522E;
+  --band: #B86541;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1C1A18;
+    --surface: #262320;
+    --text: #EFE6DD;
+    --muted: #B3A89E;
+    --line: #3A3531;
+    --link: #FFA57E;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+a { color: var(--link); }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+header.site {
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+}
+header.site .wrap {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; min-height: 60px; flex-wrap: wrap; padding-top: 8px; padding-bottom: 8px;
+}
+.brand { display: flex; align-items: center; gap: 10px; color: var(--text); text-decoration: none; font-weight: 700; }
+.brand img { width: 32px; height: 32px; border-radius: 7px; }
+nav.site { display: flex; gap: 16px; font-size: 14px; flex-wrap: wrap; }
+nav.site a { color: var(--muted); text-decoration: none; }
+nav.site a[aria-current="page"] { color: var(--text); font-weight: 700; }
+main { padding: 32px 0 56px; }
+h1 { font-size: 1.6rem; line-height: 1.4; margin: 0 0 8px; }
+h2 { font-size: 1.2rem; line-height: 1.5; margin: 40px 0 12px; padding-top: 16px; border-top: 1px solid var(--line); }
+h3 { font-size: 1.05rem; margin: 28px 0 8px; }
+p, ul, ol, table { margin: 0 0 16px; }
+ul, ol { padding-left: 1.4em; }
+li + li { margin-top: 4px; }
+.table-scroll { overflow-x: auto; margin: 0 0 16px; }
+table { border-collapse: collapse; width: 100%; font-size: 15px; background: var(--surface); }
+th, td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
+th { background: color-mix(in srgb, var(--accent) 10%, var(--surface)); }
+.lead { color: var(--muted); }
+.meta { color: var(--muted); font-size: 14px; }
+.hero { text-align: center; padding: 24px 0 8px; }
+.hero img { width: 112px; height: 112px; border-radius: 25px; box-shadow: 0 6px 20px rgba(43,38,34,.15); }
+.hero h1 { font-size: 2rem; margin-top: 16px; }
+.button {
+  display: inline-block; padding: 12px 20px; border-radius: 12px;
+  background: var(--band); color: #fff; text-decoration: none; font-weight: 700;
+}
+.card {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+  padding: 16px 18px; margin: 0 0 16px;
+}
+.card > :last-child { margin-bottom: 0; }
+details { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px 16px; margin: 0 0 10px; }
+details summary { cursor: pointer; font-weight: 700; }
+details[open] summary { margin-bottom: 8px; }
+details > :last-child { margin-bottom: 0; }
+footer.site { border-top: 1px solid var(--line); padding: 24px 0 40px; color: var(--muted); font-size: 13px; }
+footer.site a { color: var(--muted); }
+</style>
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="{{ '/' | relative_url }}">
+      <img src="{{ '/assets/app-icon.png' | relative_url }}" alt="" width="32" height="32">
+      <span>{{ site.title }}</span>
+    </a>
+    <nav class="site" aria-label="サイト内">
+      <a href="{{ '/support.html' | relative_url }}"{% if page.url == '/support.html' %} aria-current="page"{% endif %}>サポート</a>
+      <a href="{{ '/privacy.html' | relative_url }}"{% if page.url == '/privacy.html' %} aria-current="page"{% endif %}>プライバシーポリシー</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+{{ content }}
+  </div>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <p><a href="{{ '/support.html' | relative_url }}">サポート</a> ・ <a href="{{ '/privacy.html' | relative_url }}">プライバシーポリシー</a></p>
+    <p>© {{ site.time | date: '%Y' }} {{ site.title }}</p>
+  </div>
+</footer>
+<script>
+// 表を横スクロールできる箱で包む（スマホで表がはみ出さないように）
+document.querySelectorAll('main table').forEach(function (t) {
+  var box = document.createElement('div');
+  box.className = 'table-scroll';
+  t.parentNode.insertBefore(box, t);
+  box.appendChild(t);
+});
+</script>
+</body>
+</html>
