@@ -9,10 +9,10 @@ baseurl: /matomeru
 url: https://shin6022.github.io
 
 # ── ここだけ埋めれば全ページに反映される ──────────────
-contact_email: "[アプリ専用メールアドレス]"
-operator_name: "[運営者名]"
-policy_established: "2026年[●]月[●]日"
-policy_revised: "2026年[●]月[●]日"
+contact_email: "matomeru6022@gmail.com"
+operator_name: "shin6022"
+policy_established: "2026年9月30日"
+policy_revised: "2026年9月30日"
 # App Store 公開後に App Store のURLを入れると、トップにボタンが出る
 app_store_url: ""
 # ─────────────────────────────────────────────
