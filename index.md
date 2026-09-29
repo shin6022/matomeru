@@ -1,11 +1,11 @@
 ---
-title: まとめる
-description: 子どもの写真、選ばなくてもアルバムになる。iOSアプリ「まとめる」
+title: めくりえ
+description: 子どもの写真、選ばなくてもアルバムになる。iOSアプリ「めくりえ」
 ---
 
 <div class="hero">
-  <img src="{{ '/assets/app-icon.png' | relative_url }}" alt="まとめる のアイコン" width="112" height="112">
-  <h1>まとめる</h1>
+  <img src="{{ '/assets/app-icon.png' | relative_url }}" alt="めくりえ のアイコン" width="112" height="112">
+  <h1>めくりえ</h1>
   <p class="lead">子どもの写真、選ばなくてもアルバムになる。</p>
   {% if site.app_store_url != "" %}<p><a class="button" href="{{ site.app_store_url }}">App Store で見る</a></p>{% endif %}
 </div>
